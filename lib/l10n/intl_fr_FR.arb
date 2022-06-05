@@ -1,0 +1,12 @@
+{
+  "app_title" : "Liste des tâches",
+  "bottomsheet_hint" : "Recherche",
+  "bottomsheet_label" : "Veuillez saisir un texte à rechercher",
+  "bottomsheet_validator" : "Veuillez entrer un critère de recherche",
+  "addsheet_hint" : "Je dois faire...",
+  "addsheet_label" :"Veuillez introduire le descriptif de la tâche",
+  "addsheet_validator" : "Veuillez entrer un descriptif",
+  "todo_list_empty" : "Aucune tâche",
+  "todo_list_loading" : "Chargement en cours...",
+  "delete_todo" : "Supprimer"
+}

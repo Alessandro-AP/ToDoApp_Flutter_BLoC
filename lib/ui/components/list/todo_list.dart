@@ -19,10 +19,10 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return getTodoCardWidget(snapshot);
+    return getTodoCardWidget(context, snapshot);
   }
 
-  Widget getTodoCardWidget(AsyncSnapshot<List<Todo>> snapshot) {
+  Widget getTodoCardWidget(BuildContext context,AsyncSnapshot<List<Todo>> snapshot) {
     /*
       Since most of our operations are asynchronous
       at initial state of the operation there will be no stream
@@ -40,13 +40,13 @@ class TodoList extends StatelessWidget {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, itemPosition) {
                 Todo todo = snapshot.data![itemPosition];
-                return listItem(todoBloc,todo);
+                return listItem(context,todoBloc,todo);
               },
             )
           : Center(
               // this is used whenever there 0 Todo
               // in the data base
-              child: noTodoMessageWidget(),
+              child: noTodoMessageWidget(context),
             );
     } else {
       return Center(
@@ -57,7 +57,7 @@ class TodoList extends StatelessWidget {
           to let the use know the app is currently
           processing
         */
-        child: loadingData(todoBloc),
+        child: loadingData(context,todoBloc),
       );
     }
   }

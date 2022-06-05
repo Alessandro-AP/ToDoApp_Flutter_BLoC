@@ -1,0 +1,12 @@
+{
+  "app_title" : "TODO List",
+  "bottomsheet_hint" : "Search",
+  "bottomsheet_label" : "Please enter a text to search for",
+  "bottomsheet_validator" : "Please enter a search term",
+  "addsheet_hint" : "I have to do...",
+  "addsheet_label" : "Please enter the description of the task",
+  "addsheet_validator" : "Please enter a description",
+  "todo_list_empty" : "No tasks",
+  "todo_list_loading" : "Loading in progress...",
+  "delete_todo" : "Delete"
+}

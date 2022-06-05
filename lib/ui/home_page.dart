@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:todo_list/bloc/bloc.dart';
 import 'package:todo_list/models/todo.dart';
 
+import '../generated/l10n.dart';
 import 'components/bottom_bar/bottom_bar.dart';
 import 'components/list/todo_list.dart';
 
@@ -66,6 +67,7 @@ class HomePage extends StatelessWidget {
   }
 
   void _showAddTodoSheet(BuildContext context) {
+    final delegate = S.of(context);
     final todoDescriptionFormController = TextEditingController();
     showModalBottomSheet(
         context: context,
@@ -98,15 +100,15 @@ class HomePage extends StatelessWidget {
                               style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w400),
                               autofocus: true,
-                              decoration: const InputDecoration(
-                                  hintText: "Je dois faire...",
-                                  labelText: "Veuillez introduire le descriptif de la tâche",
-                                  labelStyle: TextStyle(
+                              decoration: InputDecoration(
+                                  hintText: delegate.addsheet_hint,
+                                  labelText: delegate.addsheet_label,
+                                  labelStyle: const TextStyle(
                                       color: Colors.indigoAccent,
                                       fontWeight: FontWeight.w500)),
                               validator: (value) {
                                 if (value != null && value.isEmpty) {
-                                  return "Veuillez entrer un descriptif";
+                                  return delegate.addsheet_validator;
                                 }
                                 return null;
                               },

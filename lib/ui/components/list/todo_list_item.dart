@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import '../../../bloc/bloc.dart';
+import '../../../generated/l10n.dart';
 import '../../../models/todo.dart';
 
-Widget listItem(TodoBloc todoBloc,Todo todo) {
+Widget listItem(BuildContext context,TodoBloc todoBloc,Todo todo) {
+  final delegate = S.of(context);
+
   return Dismissible(
     background: Container(
       color: Colors.redAccent,
-      child: const Padding(
-        padding: EdgeInsets.only(left: 10),
+      child:  Padding(
+        padding: const EdgeInsets.only(left: 10),
         child: Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            "Supprimer",
-            style: TextStyle(color: Colors.white),
+            delegate.delete_todo,
+            style: const TextStyle(color: Colors.white),
           ),
         ),
       ),

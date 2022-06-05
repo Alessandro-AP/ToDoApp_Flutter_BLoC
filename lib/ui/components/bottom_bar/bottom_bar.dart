@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/bloc/bloc.dart';
 
+import '../../../generated/l10n.dart';
+
 BottomAppBar bottomAppBar(BuildContext context, TodoBloc todoBloc) {
   return BottomAppBar(
     color: Colors.white,
@@ -55,6 +57,8 @@ BottomAppBar bottomAppBar(BuildContext context, TodoBloc todoBloc) {
 
 
 void _showTodoSearchSheet(BuildContext context, TodoBloc todoBloc) {
+  final delegate = S.of(context);
+
   final todoSearchDescriptionFormController = TextEditingController();
   showModalBottomSheet(
       context: context,
@@ -88,16 +92,16 @@ void _showTodoSearchSheet(BuildContext context, TodoBloc todoBloc) {
                             style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w400),
                             autofocus: true,
-                            decoration: const InputDecoration(
-                              hintText: "Recherche",
-                              labelText: "Veuillez saisir un texte à rechercher",
-                              labelStyle: TextStyle(
+                            decoration: InputDecoration(
+                              hintText: delegate.bottomsheet_hint,
+                              labelText: delegate.bottomsheet_label,
+                              labelStyle: const TextStyle(
                                   color: Colors.indigoAccent,
                                   fontWeight: FontWeight.w500),
                             ),
                             validator: (value) {
                               if (value != null && value.isEmpty) {
-                                return "Veuillez entrer un critère de recherche";
+                                return delegate.bottomsheet_validator;
                               }
                               return null;
                             },
