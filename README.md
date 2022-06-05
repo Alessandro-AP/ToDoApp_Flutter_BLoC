@@ -1,1 +1,3 @@
-# ToDoApp_Flutter_BLoC
+# TODO List
+
+A Flutter project based on BLoC architecture
