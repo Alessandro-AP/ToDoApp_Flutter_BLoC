@@ -1,9 +1,11 @@
+final d = DateTime.now();
 class Todo {
   int? id;
   String description;
   bool isDone;
+  String date;
 
-  Todo({this.id, this.description = "", this.isDone = false});
+  Todo({this.id, this.description = "", this.isDone = false, this.date = ""});
 
   factory Todo.fromMap(Map<String, dynamic> data) => Todo(
     //This will be used to convert Maps objects that
@@ -11,6 +13,7 @@ class Todo {
     id: data['id'],
     description: data['description'],
     isDone: data['is_done'] == 0 ? false : true, // int <-> boolean
+    date: data['date'],
   );
 
   Map<String, dynamic> toMap() => {
@@ -18,6 +21,7 @@ class Todo {
     "id": id,
     "description": description,
     "is_done": isDone == false ? 0 : 1, // boolean <-> int
+    "date" : date,
   };
 
 }

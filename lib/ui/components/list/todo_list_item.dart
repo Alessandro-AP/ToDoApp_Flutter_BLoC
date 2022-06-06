@@ -5,6 +5,7 @@ import '../../../models/todo.dart';
 
 Widget listItem(BuildContext context,TodoBloc todoBloc,Todo todo) {
   final delegate = S.of(context);
+  var date = DateTime.tryParse(todo.date);
 
   return Dismissible(
     background: Container(
@@ -64,6 +65,27 @@ Widget listItem(BuildContext context,TodoBloc todoBloc,Todo todo) {
               fontWeight: todo.isDone ? FontWeight.w100 : FontWeight.w500,
             ),
           ),
-        )),
+          trailing: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("${date?.day}.${date?.month}.${date?.year}",
+                style: TextStyle(
+                  fontSize: 16.5,
+                  fontFamily: 'RobotoMono',
+                  fontWeight: todo.isDone ? FontWeight.w100 : FontWeight.w500,
+              ),
+              ),
+              Text("${date?.hour}:${date?.minute}",
+                style: TextStyle(
+                  fontSize: 16.5,
+                  fontFamily: 'RobotoMono',
+                  fontWeight: todo.isDone ? FontWeight.w100 : FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+        )
+    ),
   );
 }

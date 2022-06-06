@@ -126,7 +126,7 @@ class HomePage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 onPressed: () {
-                                  final newTodo = Todo(description: todoDescriptionFormController.value.text);
+                                  final newTodo = Todo(description: todoDescriptionFormController.value.text, date: DateTime.now().toString());
                                   if (newTodo.description.isNotEmpty) {
                                     /*
                                       Create new Todo object and make sure
